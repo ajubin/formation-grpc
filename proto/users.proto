@@ -18,12 +18,11 @@ message User {
     UserStatus status = 4;
 }
 
-message UserRequest {
-    int32 id = 1;
+message UserList {
+    repeated User User = 1;
 }
 
 service Users {
-    rpc GetUser(UserRequest) returns (User) {};
-    rpc CreateUser(stream User) returns (google.protobuf.Empty) {}
-    rpc GetUsers(google.protobuf.Empty) returns (stream User) {};
+    rpc GetUsers(google.protobuf.Empty) returns (UserList) {};
+    rpc CreateUser(User) returns (google.protobuf.Empty) {};
 } 

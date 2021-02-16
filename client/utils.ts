@@ -8,4 +8,3 @@ export const client = new UsersClient(
   credentials.createInsecure()
 );
 
-export const noop = () => {};
