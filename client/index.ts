@@ -1,4 +1,4 @@
-import { User, UserStatus } from "../proto/users_pb";
+import { User, UserStatus } from "../proto/build/users_pb";
 import getUser from "./get-user";
 import createUsers from "./create-users";
 import allUsers from "./all-users";

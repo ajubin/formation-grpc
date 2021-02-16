@@ -1,4 +1,4 @@
-import { UsersClient } from "../proto/users_grpc_pb";
+import { UsersClient } from "../proto/build/users_grpc_pb";
 import { credentials } from "grpc";
 
 const port = 3000;

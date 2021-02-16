@@ -1,4 +1,4 @@
-import { User } from "../proto/users_pb";
+import { User } from "../proto/build/users_pb";
 import { client, noop } from "./utils";
 
 export default function createNewUsers(users: User[]) {

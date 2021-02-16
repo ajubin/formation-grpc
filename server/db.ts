@@ -1,4 +1,4 @@
-import { User, UserStatus } from "../proto/users_pb";
+import { User, UserStatus } from "../proto/build/users_pb";
 
 export function userToClass({ id, name, age, status }: User.AsObject) {
   const user = new User();

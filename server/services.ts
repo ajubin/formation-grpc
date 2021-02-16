@@ -7,8 +7,8 @@ import {
 } from "grpc";
 import { Empty } from "google-protobuf/google/protobuf/empty_pb";
 
-import { IUsersServer } from "../proto/users_grpc_pb";
-import { User, UserRequest } from "../proto/users_pb";
+import { IUsersServer } from "../proto/build/users_grpc_pb";
+import { User, UserRequest } from "../proto/build/users_pb";
 import { users } from "./db";
 
 export class UsersServer implements IUsersServer {

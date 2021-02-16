@@ -1,5 +1,5 @@
 import { Empty } from "google-protobuf/google/protobuf/empty_pb";
-import { User } from "../proto/users_pb";
+import { User } from "../proto/build/users_pb";
 import { client } from "./utils";
 
 export default function allUsers() {

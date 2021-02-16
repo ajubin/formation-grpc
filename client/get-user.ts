@@ -1,4 +1,4 @@
-import { User, UserRequest } from "../proto/users_pb";
+import { User, UserRequest } from "../proto/build/users_pb";
 import { client } from "./utils";
 
 export default function getUsers(id: number) {
