@@ -3,6 +3,7 @@ syntax = "proto3";
 package users;
 
 import "google/protobuf/empty.proto";
+// import "google/api/annotations.proto";
 
 enum UserStatus {
     UNKNOWN = 0;
@@ -23,6 +24,15 @@ message UserList {
 }
 
 service Users {
-    rpc GetUsers(google.protobuf.Empty) returns (UserList) {};
-    rpc CreateUser(User) returns (google.protobuf.Empty) {};
+    rpc GetUsers(google.protobuf.Empty) returns (UserList) {
+        // option (google.api.http) = {
+        //     get: "/v1/user"
+        //   };
+    };
+    rpc CreateUser(User) returns (google.protobuf.Empty) {
+        // option (google.api.http) = {
+        //     post: "/v1/user"
+        //     body: "*"
+        //   };
+    };
 } 

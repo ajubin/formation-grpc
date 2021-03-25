@@ -1,0 +1,55 @@
+{
+  "definitions": {
+    "users.User": {
+      "title": "User",
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "minimum": -2147483648,
+          "maximum": 2147483647
+        },
+        "name": {
+          "type": "string"
+        },
+        "age": {
+          "type": "integer",
+          "minimum": -2147483648,
+          "maximum": 2147483647
+        },
+        "status": {
+          "title": "UserStatus",
+          "type": "string",
+          "enum": [
+            "UNKNOWN",
+            "OFFLINE",
+            "BUSY",
+            "AVAILABLE"
+          ]
+        }
+      }
+    },
+    "users.UserList": {
+      "title": "UserList",
+      "type": "object",
+      "properties": {
+        "User": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/users.User"
+          }
+        }
+      }
+    },
+    "users.UserStatus": {
+      "title": "UserStatus",
+      "type": "string",
+      "enum": [
+        "UNKNOWN",
+        "OFFLINE",
+        "BUSY",
+        "AVAILABLE"
+      ]
+    }
+  }
+}

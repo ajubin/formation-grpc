@@ -1,4 +1,4 @@
-import { ServerUnaryCall, sendUnaryData } from "grpc";
+import { status, ServerUnaryCall, sendUnaryData, ServiceError } from "grpc";
 import { Empty } from "google-protobuf/google/protobuf/empty_pb";
 
 import { IUsersServer } from "../proto/build/users_grpc_pb";
@@ -20,8 +20,25 @@ export class UsersServer implements IUsersServer {
   ) {
     console.log(`createUser: creating new users.`);
     const object = call.request.toObject();
-    users.push(userToClass(object))
-    callback(null, new Empty());
+    console.log(object);
+    if (isValidUser(userToClass(object))) {
+      users.push(userToClass(object))
+      callback(null, new Empty());
+    } else {
+      const error: ServiceError = {
+        message: 'user is not valid',
+        name: 'server.createUser',
+        code: status.INVALID_ARGUMENT
+      }
+      callback(error, null);
+    }
   }
 }
 
+
+const isValidUser = (user: User) => {
+  if (user.getAge() < 10) {
+    return false;
+  }
+  return true
+}
